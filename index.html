@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Nest Urban Stay</title>
+    <title>The Nest | Urban Stay</title>
     <style>
-        /* LUXURY MINIMAL STYLE */
+        * { box-sizing: border-box; }
         body { 
             background-color: #0a0a0a; 
             color: #fff; 
@@ -14,160 +14,169 @@
             display: flex; flex-direction: column; align-items: center;
         }
 
-        /* ΑΥΤΟ ΠΕΡΙΟΡΙΖΕΙ ΤΟ ΠΛΑΤΟΣ ΣΤΟΝ ΥΠΟΛΟΓΙΣΤΗ */
         .main-wrapper {
             width: 100%;
-            max-width: 500px; /* Το πλάτος ενός κινητού στον υπολογιστή */
+            max-width: 500px; 
             margin: 0 auto;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* HEADER SECTION */
         header { 
-            padding: 50px 20px; 
+            padding: 60px 20px 40px 20px; 
             text-align: center; 
-            width: 100%;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Κεντράρει τα πάντα οριζόντια */
-        }
-        .logo { 
-            width: 130px; 
-            margin-bottom: 25px;
-            border-radius: 20px; /* Ρύθμισε την καμπύλη 20% */
-            
-            filter: brightness(1.2); 
-            object-fit: contain; /* Για να μην παραμορφώνεται */
-            padding: 10px; /* Προαιρετικά, για λίγο αέρα γύρω από το σήμα */
-            background-color: #fff; /* Διατηρούμε το λευκό background της εικόνας */
-        }
-        .main-title { 
-            font-weight: 300; 
-            letter-spacing: 5px; 
-            font-size: 0.75rem; 
-            color: #999; 
-            text-transform: uppercase; 
-            max-width: 85%; /* Περιορίζει το πλάτος για να κεντράρει καλύτερα */
-            line-height: 1.5; /* Δίνει αέρα ανάμεσα στις γραμμές αν σπάσει το κείμενο */
-            margin: 0 auto; /* Εξασφαλίζει το κεντράρισμα */
+            align-items: center;
         }
 
-        /* RESIDENCE GRID (VERTICAL STRIPS) */
+        .logo { 
+            width: 120px; 
+            margin-bottom: 25px; 
+            border-radius: 18px;
+            filter: brightness(1.1); 
+            background-color: #fff;
+            padding: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .main-title { 
+            font-weight: 300; 
+            letter-spacing: 2px; 
+            font-size: 0.7rem; 
+            color: #999; 
+            text-transform: uppercase; 
+            line-height: 1.6;
+            max-width: 90%;
+        }
+
+        /* RESIDENCE GRID */
         .grid-container { 
             width: 100%; 
             display: flex; 
             flex-direction: column; 
-            gap: 4px; /* Λεπτή μαύρη γραμμή ανάμεσα στις φωτό */
+            gap: 5px;
         }
 
         .room-strip {
             position: relative;
-            height: 180px; /* Ιδανικό ύψος για κινητό */
+            height: 170px; 
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             overflow: hidden;
-            background-color: #1a1a1a;
+            background-color: #000;
         }
 
-        /* Η φωτογραφία του δωματίου */
+        /* ΕΦΕ ΦΩΤΟΓΡΑΦΙΑΣ */
         .room-strip img {
             position: absolute;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.6; /* Σκοτεινιάζουμε τη φωτό για να γράφει καλά το κείμενο */
-            transition: opacity 0.4s ease;
+            opacity: 0.5;
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: scale(1); /* Αρχικό μέγεθος */
         }
 
-        .room-strip:active img {
-            opacity: 0.9; /* Φωτίζει όταν το πατάς */
+        /* HOVER & ACTIVE EFFECTS */
+        .room-strip:hover img {
+            opacity: 0.7;
+            transform: scale(1.1); /* To Zoom που ζήτησες */
         }
 
-        /* Το όνομα του δωματίου πάνω στη φωτό */
         .room-label {
             position: relative;
             z-index: 2;
             color: #fff;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 300;
-            letter-spacing: 5px;
+            letter-spacing: 6px;
             text-transform: uppercase;
-            text-shadow: 0px 2px 10px rgba(0,0,0,0.8);
+            transition: all 0.4s ease;
         }
 
-        /* CLUB BUTTON SECTION */
+        .room-strip:hover .room-label {
+            letter-spacing: 10px; /* Μεγαλώνουν τα γράμματα οπτικά */
+            font-weight: 400;
+        }
+
+        /* FOOTER & CLUB */
         .footer-section {
-            padding: 60px 20px;
-            width: 100%;
+            padding: 60px 20px 30px 20px;
             text-align: center;
+            margin-top: auto;
         }
 
         .btn-club {
             display: inline-block;
-            border: 1px solid #c0c0c0; /* Silver Outline */
-            color: #c0c0c0;
-            padding: 18px 40px;
+            border: 1px solid #d4af37; /* Χρυσό περίγραμμα για να ταιριάζει με το logo */
+            color: #d4af37;
+            padding: 16px 32px;
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            margin-bottom: 40px;
+            transition: 0.3s;
         }
 
-        .btn-club:active {
-            background-color: #c0c0c0;
-            color: #0a0a0a;
+        .btn-club:hover {
+            background: #d4af37;
+            color: #000;
         }
 
-        .copyright {
-            margin-top: 40px;
-            font-size: 0.6rem;
+        .credits {
+            font-size: 0.65rem;
             color: #444;
             letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: 0.3s;
         }
+
+        .credits strong { color: #666; }
+        .credits:hover { color: #888; }
+
     </style>
 </head>
 <body>
+
     <div class="main-wrapper">
-        
-    <header>
-        <img src="assets/TheNestUrbanStay_logo.png" alt="The Nest Urban Stay" class="logo">
-        <div class="main-title">Smart Living for Digital Nomads & Urban Explorers</div>
-    </header>
+        <header>
+            <img src="assets/TheNestUrbanStay_logo.png" alt="The Nest Urban Stay" class="logo">
+            <div class="main-title">Smart Living for Digital Nomads & Urban Explorers</div>
+        </header>
 
-    <div class="grid-container">
-        
-        <a href="zen.html" class="room-strip">
-            <img src="assets/Zen.jpg" alt="ZEN Residence">
-            <span class="room-label">ZEN</span>
-        </a>
-
-        <a href="uno.html" class="room-strip">
-            <img src="assets/Uno.jpg" alt="UNO Residence">
-            <span class="room-label">UNO</span>
-        </a>
-
-        <a href="studio47.html" class="room-strip">
-            <img src="assets/Studio_47.jpg" alt="STUDIO 47 Residence">
-            <span class="room-label">STUDIO 47</span>
-        </a>
-
-        <a href="comfort.html" class="room-strip">
-            <img src="assets/Comfort.jpg" alt="COMFORT Residence">
-            <span class="room-label">COMFORT</span>
-        </a>
-
+        <div class="grid-container">
+            <a href="zen.html" class="room-strip">
+                <img src="assets/Zen.jpg" alt="ZEN">
+                <span class="room-label">ZEN</span>
+            </a>
+            <a href="uno.html" class="room-strip">
+                <img src="assets/Uno.jpg" alt="UNO">
+                <span class="room-label">UNO</span>
+            </a>
+            <a href="studio47.html" class="room-strip">
+                <img src="assets/Studio_47.jpg" alt="STUDIO 47">
+                <span class="room-label">STUDIO 47</span>
+            </a>
+            <a href="comfort.html" class="room-strip">
+                <img src="assets/Comfort.jpg" alt="COMFORT">
+                <span class="room-label">COMFORT</span>
+            </a>
         </div>
-    </div>
-    
-    <div class="footer-section">
-        <a href="club.html" class="btn-club">JOIN THE NEST CLUB</a>
-        <div class="copyright">THE NEST URBAN STAY KARDITSA &copy; 2026</div>
+
+        <div class="footer-section">
+            <a href="club.html" class="btn-club">JOIN THE NEST CLUB</a>
+            <br>
+            <a href="https://your-agency-site.com" class="credits" target="_blank">
+                Powered by <strong>Digital Atelier</strong>
+            </a>
+        </div>
     </div>
 
 </body>
