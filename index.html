@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Nest | Urban Stay</title>
+    <style>
+        /* LUXURY MINIMAL STYLE */
+        body { 
+            background-color: #0a0a0a; 
+            color: #fff; 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            margin: 0; padding: 0; 
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        /* HEADER SECTION */
+        header { 
+            padding: 50px 20px; 
+            text-align: center; 
+            width: 100%;
+        }
+        .logo { 
+            width: 150px; 
+            margin-bottom: 25px; 
+            filter: brightness(1.2) grayscale(1); 
+        }
+        .main-title { 
+            font-weight: 200; 
+            letter-spacing: 7px; 
+            font-size: 0.9rem; 
+            color: #999; 
+            text-transform: uppercase; 
+        }
+
+        /* RESIDENCE GRID (VERTICAL STRIPS) */
+        .grid-container { 
+            width: 100%; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 4px; /* Λεπτή μαύρη γραμμή ανάμεσα στις φωτό */
+        }
+
+        .room-strip {
+            position: relative;
+            height: 180px; /* Ιδανικό ύψος για κινητό */
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            overflow: hidden;
+            background-color: #1a1a1a;
+        }
+
+        /* Η φωτογραφία του δωματίου */
+        .room-strip img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6; /* Σκοτεινιάζουμε τη φωτό για να γράφει καλά το κείμενο */
+            transition: opacity 0.4s ease;
+        }
+
+        .room-strip:active img {
+            opacity: 0.9; /* Φωτίζει όταν το πατάς */
+        }
+
+        /* Το όνομα του δωματίου πάνω στη φωτό */
+        .room-label {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            text-shadow: 0px 2px 10px rgba(0,0,0,0.8);
+        }
+
+        /* CLUB BUTTON SECTION */
+        .footer-section {
+            padding: 60px 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-club {
+            display: inline-block;
+            border: 1px solid #c0c0c0; /* Silver Outline */
+            color: #c0c0c0;
+            padding: 18px 40px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-club:active {
+            background-color: #c0c0c0;
+            color: #0a0a0a;
+        }
+
+        .copyright {
+            margin-top: 40px;
+            font-size: 0.6rem;
+            color: #444;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="assets/logo.png" alt="The Nest" class="logo">
+        <div class="main-title">SELECT YOUR RESIDENCE</div>
+    </header>
+
+    <div class="grid-container">
+        
+        <a href="zen.html" class="room-strip">
+            <img src="assets/zen.jpg" alt="ZEN Residence">
+            <span class="room-label">ZEN</span>
+        </a>
+
+        <a href="uno.html" class="room-strip">
+            <img src="assets/uno.jpg" alt="UNO Residence">
+            <span class="room-label">UNO</span>
+        </a>
+
+        <a href="studio47.html" class="room-strip">
+            <img src="assets/studio47.jpg" alt="STUDIO 47 Residence">
+            <span class="room-label">STUDIO 47</span>
+        </a>
+
+        <a href="comfort.html" class="room-strip">
+            <img src="assets/comfort.jpg" alt="COMFORT Residence">
+            <span class="room-label">COMFORT</span>
+        </a>
+
+    </div>
+
+    <div class="footer-section">
+        <a href="club.html" class="btn-club">JOIN THE NEST CLUB</a>
+        <div class="copyright">THE NEST URBAN STAY KARDITSA &copy; 2026</div>
+    </div>
+
+</body>
+</html>
