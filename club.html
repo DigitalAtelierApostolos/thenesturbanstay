@@ -143,6 +143,21 @@
             outline: none !important;
         }
 
+        /* ΠΡΟΣΘΗΚΗ ΣΤΟ CSS ΣΟΥ */
+        .disclaimer {
+            margin-top: 15px !important;
+            font-size: 0.65rem !important; /* Πολύ μικρά γράμματα */
+            color: #444 !important; /* Διακριτικό γκρι */
+            letter-spacing: 1px;
+            line-height: 1.4;
+            font-style: italic;
+        }
+
+        /* Για να φαίνεται το σφάλμα του email πιο όμορφα */
+        input:invalid:not(:placeholder-shown) {
+            border-color: #ff4444;
+        }
+
     </style>
 </head>
 <body>
@@ -157,10 +172,16 @@
         <h1>Unlock 10% Off</h1>
         <p>Γίνετε μέλος του club και λάβετε τον κωδικό έκπτωσης για την επόμενη κράτησή σας.</p>
 
-        <form action="https://formspree.io/f/YOUR_ID" method="POST">
+        <<form name="nest-club" method="POST" data-netlify="true">
             <input type="text" name="name" placeholder="Ονοματεπώνυμο" required>
+    
             <input type="email" name="email" placeholder="Email" required>
-            <button type="submit" class="btn-send">ΛΗΨΗ ΚΩΔΙΚΟΥ</button>
+    
+            <button type="submit" class="btn-send">UNLOCK PRIVILEGES</button>
+    
+            <p class="disclaimer">
+            * Θα λάβετε άμεσα ένα email με την ψηφιακή κάρτα μέλους και τον κωδικό έκπτωσης.
+            </p>
         </form>
 
         <a href="index.html" class="back-home">Back to Residence Hub</a>
