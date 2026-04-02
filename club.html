@@ -23,7 +23,6 @@
             text-align: center;
         }
 
-        /* Η ΦΩΤΟΓΡΑΦΙΑ ΜΕ ΤΟ ZOOM ΠΟΥ ΕΙΠΑΜΕ */
         .logo-box {
             width: 110px;
             height: 110px;
@@ -38,9 +37,9 @@
         }
 
         .logo-box img {
-            width: 120%; /* ΖΟΥΜ ΣΤΗ ΦΩΤΟΓΡΑΦΙΑ (120% αντί για 100%) */
+            width: 120%; 
             height: 160%; 
-            object-fit: contain; /* Για να μην παραμορφώνεται */
+            object-fit: contain;
             filter: brightness(1.1);
         }
 
@@ -51,7 +50,7 @@
         }
 
         .logo-link:hover {
-            transform: scale(1.05); /* Ένα μικρό "ζωντανό" εφέ όταν το πατάς */
+            transform: scale(1.05);
         }
 
         h1 { 
@@ -63,11 +62,13 @@
             text-transform: uppercase;
         }
 
+        /* ΠΙΟ ΦΩΤΕΙΝΟ ΚΕΙΜΕΝΟ ΠΕΡΙΓΡΑΦΗΣ */
         p { 
-            font-size: 0.8rem; 
-            color: #666; 
+            font-size: 0.85rem; 
+            color: #bbb; /* Από #666 σε #bbb για φωτεινότητα */
             margin-bottom: 35px;
             line-height: 1.5;
+            letter-spacing: 0.5px;
         }
 
         form {
@@ -80,7 +81,7 @@
             background: #151515;
             border: 1px solid #222;
             padding: 20px;
-            border-radius: 15px; /* Στρογγυλεμένες γωνίες logo */
+            border-radius: 15px;
             color: #fff;
             font-size: 0.9rem;
             outline: none;
@@ -94,33 +95,31 @@
         }
 
         .btn-send {
-            background: #d4af37; /* Γεμάτο χρυσό από την αρχή */
+            background: #d4af37;
             color: #000;
             padding: 20px;
             border-radius: 30px;
-            border: 1px solid #d4af37; /* Προσθέτουμε border για να μη χάνεται το σχήμα στο hover */
+            border: 1px solid #d4af37;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 0.8rem;
             margin-top: 15px;
             cursor: pointer;
-            transition: all 0.4s ease; /* Ομαλή μετάβαση */
+            transition: all 0.4s ease;
         }
 
-        /* ΤΟ ΑΝΑΠΟΔΟ HOVER (REVERSE) */
         .btn-send:hover {
-            background: transparent; /* Σβήνει το χρώμα */
-            color: #d4af37; /* Το κείμενο γίνεται χρυσό */
-            box-shadow: none; /* Αφαιρούμε τυχόν σκιές */
-            transform: scale(0.98); /* Μικραίνει ελαφρώς αντί να μεγαλώνει */
+            background: transparent;
+            color: #d4af37;
+            transform: scale(0.98);
         }
 
         .back-home {
             margin-top: 40px;
             display: inline-block;
-            font-size: 0.6rem;
-            color: #333;
+            font-size: 0.65rem;
+            color: #666; /* Πιο φωτεινό από το #333 */
             text-decoration: none;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -130,10 +129,9 @@
 
         .back-home:hover {
             color: #d4af37;
-            border-bottom: 1px solid #d4af37;
         }
 
-        /* ΑΦΑΙΡΕΣΗ ΜΠΛΕ ΠΛΑΙΣΙΟΥ ΣΕ ΚΙΝΗΤΑ */
+        /* ΑΦΑΙΡΕΣΗ ΜΠΛΕ ΠΛΑΙΣΙΟΥ */
         input, a, button, div {
             -webkit-tap-highlight-color: transparent;
             outline: none;
@@ -143,17 +141,16 @@
             outline: none !important;
         }
 
-        /* ΠΡΟΣΘΗΚΗ ΣΤΟ CSS ΣΟΥ */
+        /* ΠΙΟ ΦΩΤΕΙΝΟΣ ΑΣΤΕΡΙΣΚΟΣ */
         .disclaimer {
             margin-top: 15px !important;
-            font-size: 0.65rem !important; /* Πολύ μικρά γράμματα */
-            color: #444 !important; /* Διακριτικό γκρι */
-            letter-spacing: 1px;
+            font-size: 0.7rem !important; 
+            color: #888 !important; /* Από #444 σε #888 */
+            letter-spacing: 0.5px;
             line-height: 1.4;
             font-style: italic;
         }
 
-        /* Για να φαίνεται το σφάλμα του email πιο όμορφα */
         input:invalid:not(:placeholder-shown) {
             border-color: #ff4444;
         }
@@ -172,15 +169,14 @@
         <h1>Unlock 10% Off</h1>
         <p>Γίνετε μέλος του club και λάβετε τον κωδικό έκπτωσης για την επόμενη κράτησή σας.</p>
 
-        <<form name="nest-club" method="POST" data-netlify="true">
+        <form name="nest-club" method="POST" data-netlify="true">
             <input type="text" name="name" placeholder="Ονοματεπώνυμο" required>
-    
             <input type="email" name="email" placeholder="Email" required>
-    
+            
             <button type="submit" class="btn-send">UNLOCK PRIVILEGES</button>
     
             <p class="disclaimer">
-            * Θα λάβετε άμεσα ένα email με την ψηφιακή κάρτα μέλους και τον κωδικό έκπτωσης.
+                * Θα λάβετε άμεσα ένα email με την ψηφιακή κάρτα μέλους και τον κωδικό έκπτωσης.
             </p>
         </form>
 
