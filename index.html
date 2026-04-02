@@ -14,6 +14,16 @@
             display: flex; flex-direction: column; align-items: center;
         }
 
+        /* ΑΥΤΟ ΠΕΡΙΟΡΙΖΕΙ ΤΟ ΠΛΑΤΟΣ ΣΤΟΝ ΥΠΟΛΟΓΙΣΤΗ */
+        .main-wrapper {
+            width: 100%;
+            max-width: 500px; /* Το πλάτος ενός κινητού στον υπολογιστή */
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
         /* HEADER SECTION */
         header { 
             padding: 50px 20px; 
@@ -123,7 +133,8 @@
     </style>
 </head>
 <body>
-
+    <div class="main-wrapper">
+        
     <header>
         <img src="assets/TheNestUrbanStay_logo.png" alt="The Nest Urban Stay" class="logo">
         <div class="main-title">Smart Living for Digital Nomads & Urban Explorers</div>
@@ -151,8 +162,9 @@
             <span class="room-label">COMFORT</span>
         </a>
 
+        </div>
     </div>
-
+    
     <div class="footer-section">
         <a href="club.html" class="btn-club">JOIN THE NEST CLUB</a>
         <div class="copyright">THE NEST URBAN STAY KARDITSA &copy; 2026</div>
