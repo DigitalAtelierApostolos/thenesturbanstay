@@ -19,23 +19,29 @@
             padding: 50px 20px; 
             text-align: center; 
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Κεντράρει τα πάντα οριζόντια */
         }
         .logo { 
-            width: 150px; 
+            width: 130px; 
             margin-bottom: 25px;
             border-radius: 20px; /* Ρύθμισε την καμπύλη 20% */
             
-            filter: brightness(1.2) grayscale(1); 
+            filter: brightness(1.2); 
             object-fit: contain; /* Για να μην παραμορφώνεται */
             padding: 10px; /* Προαιρετικά, για λίγο αέρα γύρω από το σήμα */
-            
+            background-color: #fff; /* Διατηρούμε το λευκό background της εικόνας */
         }
         .main-title { 
-            font-weight: 200; 
-            letter-spacing: 7px; 
-            font-size: 0.9rem; 
+            font-weight: 300; 
+            letter-spacing: 5px; 
+            font-size: 0.75rem; 
             color: #999; 
             text-transform: uppercase; 
+            max-width: 85%; /* Περιορίζει το πλάτος για να κεντράρει καλύτερα */
+            line-height: 1.5; /* Δίνει αέρα ανάμεσα στις γραμμές αν σπάσει το κείμενο */
+            margin: 0 auto; /* Εξασφαλίζει το κεντράρισμα */
         }
 
         /* RESIDENCE GRID (VERTICAL STRIPS) */
