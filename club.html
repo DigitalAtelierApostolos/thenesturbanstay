@@ -94,23 +94,26 @@
         }
 
         .btn-send {
-            background: #d4af37;
+            background: #d4af37; /* Γεμάτο χρυσό από την αρχή */
             color: #000;
             padding: 20px;
-            border-radius: 30px; /* Capsule style */
-            border: none;
+            border-radius: 30px;
+            border: 1px solid #d4af37; /* Προσθέτουμε border για να μη χάνεται το σχήμα στο hover */
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 0.8rem;
             margin-top: 15px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.4s ease; /* Ομαλή μετάβαση */
         }
 
+        /* ΤΟ ΑΝΑΠΟΔΟ HOVER (REVERSE) */
         .btn-send:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            background: transparent; /* Σβήνει το χρώμα */
+            color: #d4af37; /* Το κείμενο γίνεται χρυσό */
+            box-shadow: none; /* Αφαιρούμε τυχόν σκιές */
+            transform: scale(0.98); /* Μικραίνει ελαφρώς αντί να μεγαλώνει */
         }
 
         .back-home {
@@ -135,10 +138,11 @@
 <body>
 
     <div class="club-wrapper">
-        <div class="logo-box">
-            <a href="index.html" class="logo-link">
-            <img src="assets/TheNestUrbanStay_logo.png" alt="The Nest Urban Stay"></a>
-        </div>
+        <a href="index.html" class="logo-link">
+            <div class="logo-box">
+                <img src="assets/TheNestUrbanStay_logo.png" alt="The Nest Urban Stay">
+            </div>
+        </a>
 
         <h1>Unlock 10% Off</h1>
         <p>Γίνετε μέλος του club και λάβετε τον κωδικό έκπτωσης για την επόμενη κράτησή σας.</p>
