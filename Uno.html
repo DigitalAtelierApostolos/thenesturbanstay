@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Nest Urban Stay | Digital Concierge</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        body { background-color: #0a0a0a; color: #fff; font-family: 'Helvetica Neue', Arial, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 30px 20px; }
+        
+        .container { width: 100%; max-width: 400px; text-align: center; }
+        
+        /* Logo Header */
+        .header img { width: 80px; margin-bottom: 15px; filter: brightness(1.2); }
+        h1 { font-weight: 200; letter-spacing: 3px; font-size: 1.1rem; color: #d4af37; text-transform: uppercase; margin-bottom: 5px; }
+        .room-name { font-size: 0.8rem; color: #666; margin-bottom: 30px; letter-spacing: 2px; }
+
+        /* Menu Buttons */
+        .menu-grid { display: flex; flex-direction: column; gap: 15px; }
+        
+        .menu-item {
+            background: #151515;
+            border: 1px solid #222;
+            padding: 20px;
+            border-radius: 15px;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+
+        .menu-item:active { background: #1a1a1a; transform: scale(0.98); border-color: #d4af37; }
+        
+        .menu-item i { color: #d4af37; font-size: 1.2rem; }
+        .menu-text { text-align: left; }
+        .menu-text span { display: block; font-size: 0.9rem; font-weight: 600; letter-spacing: 1px; }
+        .menu-text small { color: #555; font-size: 0.7rem; }
+
+        /* The Golden Button */
+        .club-btn {
+            margin-top: 25px;
+            background: #d4af37;
+            color: #000;
+            padding: 22px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .footer-link { margin-top: 40px; font-size: 0.6rem; color: #333; text-decoration: none; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <img src="assets/TheNestUrbanStay_logo.png" alt="Logo">
+            <h1>Welcome Home</h1>
+            <div class="room-name">Uno</div>
+        </div>
+
+        <div class="menu-grid">
+            <a href="#" class="menu-item">
+                <div class="menu-text">
+                    <span>CONNECT TO WI-FI</span>
+                    <small>SSID: TheNest_Guest / Pass: nest2024</small>
+                </div>
+                <span>📶</span>
+            </a>
+
+            <a href="house-manual.pdf" class="menu-item">
+                <div class="menu-text">
+                    <span>HOUSE MANUAL</span>
+                    <small>A/C, Hot Water, Appliances</small>
+                </div>
+                <span>📖</span>
+            </a>
+
+            <a href="https://www.google.com/maps/search/restaurants+near+me" class="menu-item">
+                <div class="menu-text">
+                    <span>LOCAL GUIDE</span>
+                    <small>Best Food & Coffee in Karditsa</small>
+                </div>
+                <span>📍</span>
+            </a>
+            
+            <a href="#" class="menu-item">
+                <div class="menu-text">
+                    <span>HOUSE RULES</span>
+                    <small>Check-out, Smoking, Quiet hours</small>
+                </div>
+                <span>📜</span>
+            </a>
+        </div>
+
+        <a href="club.html" class="club-btn">JOIN THE CLUB & GET 10% OFF</a>
+
+        <a href="index.html" class="footer-link">EXPLORE THE NEST HUB</a>
+    </div>
+
+</body>
+</html>
