@@ -3,105 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Nest Urban Stay | Digital Concierge</title>
+    <title>Guest Experience - The Nest Urban Stay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-        body { background-color: #0a0a0a; color: #fff; font-family: 'Helvetica Neue', Arial, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 30px 20px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        .container { width: 100%; max-width: 400px; text-align: center; }
-        
-        /* Logo Header */
-        .header img { width: 80px; margin-bottom: 15px; filter: brightness(1.2); }
-        h1 { font-weight: 200; letter-spacing: 3px; font-size: 1.1rem; color: #d4af37; text-transform: uppercase; margin-bottom: 5px; }
-        .room-name { font-size: 0.8rem; color: #666; margin-bottom: 30px; letter-spacing: 2px; }
+        body { 
+            background-color: #0a0a0a; 
+            color: #fff; 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            display: flex; flex-direction: column; align-items: center;
+        }
 
-        /* Menu Buttons */
-        .menu-grid { display: flex; flex-direction: column; gap: 15px; }
-        
-        .menu-item {
-            background: #151515;
-            border: 1px solid #222;
-            padding: 20px;
-            border-radius: 15px;
-            color: #fff;
-            text-decoration: none;
+        .main-wrapper {
+            width: 100%;
+            max-width: 500px; 
+            margin: 0 auto;
             display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header { 
+            padding: 50px 20px 30px 20px; 
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            transition: 0.3s;
         }
 
-        .menu-item:active { background: #1a1a1a; transform: scale(0.98); border-color: #d4af37; }
-        
-        .menu-item i { color: #d4af37; font-size: 1.2rem; }
-        .menu-text { text-align: left; }
-        .menu-text span { display: block; font-size: 0.9rem; font-weight: 600; letter-spacing: 1px; }
-        .menu-text small { color: #555; font-size: 0.7rem; }
-
-        /* The Golden Button */
-        .club-btn {
-            margin-top: 25px;
-            background: #d4af37;
-            color: #000;
-            padding: 22px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        /* LOGO ΣΤΑΘΕΡΟ ΟΠΩΣ ΤΟ INDEX */
+        .logo-container {
+            width: 130px; height: 130px;
+            margin-bottom: 25px; 
+            border-radius: 18px;
+            background-color: #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
         }
 
-        .footer-link { margin-top: 40px; font-size: 0.6rem; color: #333; text-decoration: none; letter-spacing: 1px; }
+        .logo-container img { 
+            width: 120%; height: 160%; 
+            object-fit: contain; filter: brightness(1.1);
+        }
+
+        .welcome-text { 
+            font-weight: 300; letter-spacing: 2px; font-size: 0.75rem; 
+            color: #d4af37; text-transform: uppercase; margin-bottom: 10px;
+        }
+
+        /* INTERACTIVE GRID ΓΙΑ ΤΗΝ ΚΑΡΤΑ */
+        .grid-container { 
+            width: 100%; display: flex; flex-direction: column; gap: 8px;
+        }
+
+        .action-strip {
+            position: relative;
+            height: 120px; /* Πιο κοντό από τα δωμάτια */
+            width: 100%;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; overflow: hidden; background-color: #111;
+            border-bottom: 1px solid #222;
+        }
+
+        .action-strip i {
+            position: relative; z-index: 3; font-size: 1.5rem;
+            margin-bottom: 10px; color: #fff; opacity: 0.9;
+        }
+
+        .action-content {
+            position: relative; z-index: 3; text-align: center;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .action-strip img {
+            position: absolute; width: 100%; height: 100%;
+            object-fit: cover; opacity: 0.35; /* Πιο σκοτεινό για να διαβάζεται το κείμενο */
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .action-strip:hover img {
+            opacity: 0.5; transform: scale(1.05);
+        }
+
+        .action-label {
+            color: #fff; font-size: 0.9rem; font-weight: 300;
+            letter-spacing: 4px; text-transform: uppercase;
+        }
+
+        /* WEATHER BUTTON - SPECIAL STYLE */
+        .weather-btn {
+            background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+            border: 1px solid #333; height: 80px; margin-top: 10px;
+        }
+
+        /* FOOTER & SIGNATURE */
+        .footer-section {
+            padding: 60px 20px 40px 20px; text-align: center;
+            margin-top: auto; display: flex; flex-direction: column; align-items: center;
+        }
+
+        .btn-club {
+            display: inline-block; border: 1px solid #d4af37; color: #d4af37;
+            padding: 15px 30px; text-decoration: none; font-size: 0.75rem;
+            letter-spacing: 3px; text-transform: uppercase; margin-bottom: 30px;
+            border-radius: 30px; transition: all 0.3s;
+        }
+
+        .btn-club:hover {
+            background: #d4af37; color: #000;
+        }
+
+        .credits {
+            font-size: 0.55rem; color: #333; letter-spacing: 2px;
+            text-transform: uppercase; text-decoration: none; margin-top: 20px;
+        }
+
+        .credits strong { color: #555; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="header">
-            <img src="assets/TheNestUrbanStay_logo.png" alt="Logo">
-            <h1>Welcome Home</h1>
-            <div class="room-name">ZEN</div>
+    <div class="main-wrapper">
+        <header>
+            <div class="logo-container">
+                <img src="assets/TheNestUrbanStay_logo.png" alt="The Nest">
+            </div>
+            <div class="welcome-text">Welcome to your Urban Nest</div>
+        </header>
+
+        <div class="grid-container">
+            <a href="#wifi-link" class="action-strip">
+                <img src="assets/wifi_bg.jpg" alt="Wi-Fi"> <div class="action-content">
+                    <i class="fas fa-wifi"></i>
+                    <span class="action-label">Connect to Wi-Fi</span>
+                </div>
+            </a>
+
+            <a href="#manual-link" class="action-strip">
+                <img src="assets/manual_bg.jpg" alt="Manual">
+                <div class="action-content">
+                    <i class="fas fa-book-open"></i>
+                    <span class="action-label">House Manual</span>
+                </div>
+            </a>
+
+            <a href="#guide-link" class="action-strip">
+                <img src="assets/guide_bg.jpg" alt="Local Guide">
+                <div class="action-content">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span class="action-label">Local Guide</span>
+                </div>
+            </a>
+
+            <a href="https://www.meteo.gr/cf.cfm?city_id=10" class="action-strip weather-btn" target="_blank">
+                <div class="action-content">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span class="action-label" style="font-size: 0.7rem;">Karditsa Weather</span>
+                </div>
+            </a>
         </div>
 
-        <div class="menu-grid">
-            <a href="#" class="menu-item">
-                <div class="menu-text">
-                    <span>CONNECT TO WI-FI</span>
-                    <small>SSID: TheNest_Guest / Pass: nest2024</small>
-                </div>
-                <span>📶</span>
-            </a>
-
-            <a href="house-manual.pdf" class="menu-item">
-                <div class="menu-text">
-                    <span>HOUSE MANUAL</span>
-                    <small>A/C, Hot Water, Appliances</small>
-                </div>
-                <span>📖</span>
-            </a>
-
-            <a href="https://www.google.com/maps/search/restaurants+near+me" class="menu-item">
-                <div class="menu-text">
-                    <span>LOCAL GUIDE</span>
-                    <small>Best Food & Coffee in Karditsa</small>
-                </div>
-                <span>📍</span>
-            </a>
+        <div class="footer-section">
+            <a href="club.html" class="btn-club">JOIN THE NEST CLUB</a>
             
-            <a href="#" class="menu-item">
-                <div class="menu-text">
-                    <span>HOUSE RULES</span>
-                    <small>Check-out, Smoking, Quiet hours</small>
-                </div>
-                <span>📜</span>
+            <a href="https://digitalatelier.gr" class="credits" target="_blank">
+                Designed by <strong>Digital Atelier</strong>
             </a>
         </div>
-
-        <a href="club.html" class="club-btn">JOIN THE CLUB</a>
-
-        <a href="index.html" class="footer-link">EXPLORE THE NEST HUB</a>
     </div>
 
 </body>
