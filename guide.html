@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Guide - The Nest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background: #0a0a0a; color: #fff; font-family: sans-serif; margin: 0; padding: 0; text-align: center; }
+        .nav-bar { padding: 20px; border-bottom: 1px solid #1a1a1a; display: flex; align-items: center; }
+        .btn-back { color: #d4af37; text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; }
+        
+        .guide-grid { display: flex; flex-direction: column; gap: 2px; margin-top: 20px; }
+        .guide-item { 
+            background: #000; padding: 40px 20px; text-decoration: none; color: #fff;
+            transition: 0.3s; display: flex; flex-direction: column; align-items: center;
+        }
+        .guide-item i { color: #d4af37; font-size: 1.5rem; margin-bottom: 15px; }
+        .guide-label { letter-spacing: 5px; text-transform: uppercase; font-size: 0.9rem; }
+        .guide-item:hover { background: #111; }
+        .guide-item:hover .guide-label { letter-spacing: 8px; color: #d4af37; }
+    </style>
+</head>
+<body>
+
+    <div class="nav-bar">
+        <a href="index.html" class="btn-back">← BACK</a>
+    </div>
+
+    <div class="guide-grid">
+        <a href="https://www.google.com/maps/search/coffee+near+me" target="_blank" class="guide-item">
+            <i class="fas fa-coffee"></i>
+            <span class="guide-label">Coffee & Brunch</span>
+        </a>
+
+        <a href="https://www.google.com/maps/search/restaurants+karditsa" target="_blank" class="guide-item">
+            <i class="fas fa-utensils"></i>
+            <span class="guide-label">Dining</span>
+        </a>
+
+        <a href="https://www.google.com/maps/search/attractions+karditsa" target="_blank" class="guide-item">
+            <i class="fas fa-camera-retro"></i>
+            <span class="guide-label">Sightseeing</span>
+        </a>
+
+        <a href="https://www.google.com/maps/search/pharmacy+karditsa" target="_blank" class="guide-item">
+            <i class="fas fa-first-aid"></i>
+            <span class="guide-label">Pharmacies</span>
+        </a>
+    </div>
+
+</body>
+</html>
