@@ -3,106 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Nest Urban Stay | Digital Concierge</title>
+    <title>Guest Experience - The Nest Urban Stay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-        body { background-color: #0a0a0a; color: #fff; font-family: 'Helvetica Neue', Arial, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 30px 20px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        .container { width: 100%; max-width: 400px; text-align: center; }
-        
-        /* Logo Header */
-        .header img { width: 80px; margin-bottom: 15px; filter: brightness(1.2); }
-        h1 { font-weight: 200; letter-spacing: 3px; font-size: 1.1rem; color: #d4af37; text-transform: uppercase; margin-bottom: 5px; }
-        .room-name { font-size: 0.8rem; color: #666; margin-bottom: 30px; letter-spacing: 2px; }
+        body { 
+            background-color: #0a0a0a; 
+            color: #fff; 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            display: flex; flex-direction: column; align-items: center;
+        }
 
-        /* Menu Buttons */
-        .menu-grid { display: flex; flex-direction: column; gap: 15px; }
-        
-        .menu-item {
-            background: #151515;
-            border: 1px solid #222;
-            padding: 20px;
-            border-radius: 15px;
-            color: #fff;
-            text-decoration: none;
+        .main-wrapper {
+            width: 100%;
+            max-width: 500px; 
+            margin: 0 auto;
             display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header { 
+            padding: 50px 20px 30px 20px; 
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            transition: 0.3s;
         }
 
-        .menu-item:active { background: #1a1a1a; transform: scale(0.98); border-color: #d4af37; }
-        
-        .menu-item i { color: #d4af37; font-size: 1.2rem; }
-        .menu-text { text-align: left; }
-        .menu-text span { display: block; font-size: 0.9rem; font-weight: 600; letter-spacing: 1px; }
-        .menu-text small { color: #555; font-size: 0.7rem; }
+        /* LOGO ΜΕ LINK ΣΤΟ INDEX */
+        .logo-container {
+            width: 130px; height: 130px;
+            margin-bottom: 25px; 
+            border-radius: 18px;
+            background-color: #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.3s ease;
+        }
 
-        /* The Golden Button */
-        .club-btn {
-            margin-top: 25px;
-            background: #d4af37;
-            color: #000;
-            padding: 22px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-container img { 
+            width: 120%; height: 160%; 
+            object-fit: contain; filter: brightness(1.1);
+        }
+
+        .welcome-text { 
+            font-weight: 300; letter-spacing: 2px; font-size: 0.75rem; 
+            color: #999; text-transform: uppercase; margin-bottom: 10px;
+        }
+
+        /* GRID ΓΙΑ ΤΑ ΚΟΥΜΠΙΑ ΧΩΡΙΣ ΦΩΤΟΓΡΑΦΙΕΣ */
+        .grid-container { 
+            width: 100%; display: flex; flex-direction: column; gap: 5px;
+        }
+
+        .action-strip {
+            position: relative;
+            height: 130px; 
+            width: 100%;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; overflow: hidden; 
+            background-color: #000; /* Μαύρο φόντο όπως το index */
+        }
+
+        .action-content {
+            position: relative; z-index: 3; text-align: center;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .action-content i {
+            font-size: 1.2rem;
+            margin-bottom: 12px; 
+            color: #d4af37; /* Χρυσό εικονίδιο για premium αίσθηση */
+            transition: all 0.4s ease;
+        }
+
+        .action-label {
+            color: #fff; 
+            font-size: 1.1rem; 
+            font-weight: 300;
+            letter-spacing: 6px; /* Ίδιο spacing με το index */
             text-transform: uppercase;
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+            transition: all 0.4s ease;
         }
 
-        .footer-link { margin-top: 40px; font-size: 0.6rem; color: #333; text-decoration: none; letter-spacing: 1px; }
+        /* HOVER ΕΦΕ ΣΤΑ ΓΡΑΜΜΑΤΑ (ΑΠΟ ΤΟ INDEX) */
+        .action-strip:hover .action-label {
+            letter-spacing: 10px;
+            font-weight: 400;
+        }
+
+        .action-strip:hover i {
+            transform: scale(1.2);
+            color: #fff;
+        }
+
+        /* FOOTER & SIGNATURE */
+        .footer-section {
+            padding: 60px 20px 40px 20px; text-align: center;
+            margin-top: auto; display: flex; flex-direction: column; align-items: center;
+        }
+
+        .btn-club {
+            display: inline-block; border: 1px solid #d4af37; color: #d4af37;
+            padding: 18px 36px; text-decoration: none; font-size: 0.8rem;
+            letter-spacing: 3px; text-transform: uppercase; margin-bottom: 40px;
+            border-radius: 30px; transition: all 0.3s;
+        }
+
+        .btn-club:hover {
+            background: #d4af37; color: #000;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* DIGITAL ATELIER HOVER ΟΠΩΣ ΤΟ INDEX */
+        .credits {
+            font-size: 0.55rem;
+            color: #222; 
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-top: 40px;
+            transition: 0.5s;
+        }
+
+        .credits strong { 
+            color: #333; 
+            font-weight: 600;
+        }
+
+        .credits:hover {
+            color: #666; /* Φωτίζει στο hover όπως το ζήτησες */
+        }
+        
+        .credits:hover strong {
+            color: #888;
+        }
+
+        .copyright-text {
+            font-size: 0.5rem; color: #444; margin-top: 15px;
+            letter-spacing: 1px; text-transform: uppercase;
+        }
+
+        /* ΑΦΑΙΡΕΣΗ ΜΠΛΕ ΠΛΑΙΣΙΟΥ ΣΕ ΚΙΝΗΤΑ */
+        input, a, button, div { -webkit-tap-highlight-color: transparent; outline: none; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="header">
-            <img src="assets/TheNestUrbanStay_logo.png" alt="Logo">
-            <h1>Welcome Home</h1>
-            <div class="room-name">Comfort</div>
+    <div class="main-wrapper">
+        <header>
+            <a href="index.html" class="logo-container">
+                <img src="assets/TheNestUrbanStay_logo.png" alt="The Nest">
+            </a>
+            <div class="welcome-text">Smart Living Experience</div>
+        </header>
+
+        <div class="action-strip" onclick="copyWifiPassword()" style="cursor: pointer;">
+    <div class="action-content">
+        <i class="fas fa-wifi" id="wifi-icon" style="color: #d4af37; transition: 0.3s;"></i>
+        <span class="action-label" id="wifi-text">Wi-Fi Access</span>
+        
+        <div style="font-size: 0.65rem; color: #555; letter-spacing: 2px; margin-top: 8px; font-weight: 300;">
+            NETWORK: <span style="color: #888;">Studio 47</span> <span style="margin: 0 5px;">|</span> 
+            PASS: <span style="color: #888;">84359!*QM</span>
         </div>
+    </div>
+</div>
 
-        <div class="menu-grid">
-            <a href="#" class="menu-item">
-                <div class="menu-text">
-                    <span>CONNECT TO WI-FI</span>
-                    <small>SSID: TheNest_Guest / Pass: nest2024</small>
-                </div>
-                <span>📶</span>
-            </a>
+<script>
+function copyWifiPassword() {
+    const password = "84359!*QM";
+    
+    navigator.clipboard.writeText(password).then(() => {
+        const wifiText = document.getElementById('wifi-text');
+        const wifiIcon = document.getElementById('wifi-icon');
+        
+        const originalText = wifiText.innerText;
+        
+        // Αλλαγή σε "Copied"
+        wifiText.innerText = "PASSWORD COPIED!";
+        wifiText.style.letterSpacing = "4px"; // Μικραίνει λίγο το spacing για να χωρέσει
+        wifiIcon.style.transform = "scale(1.3)";
+        wifiIcon.style.color = "#fff";
 
-            <a href="house-manual.pdf" class="menu-item">
-                <div class="menu-text">
-                    <span>HOUSE MANUAL</span>
-                    <small>A/C, Hot Water, Appliances</small>
-                </div>
-                <span>📖</span>
-            </a>
+        setTimeout(() => {
+            wifiText.innerText = originalText;
+            wifiText.style.letterSpacing = "6px";
+            wifiIcon.style.transform = "scale(1)";
+            wifiIcon.style.color = "#d4af37";
+        }, 2000);
+    }).catch(err => {
+        console.error('Σφάλμα στην αντιγραφή: ', err);
+    });
+}
+</script>
 
-            <a href="https://www.google.com/maps/search/restaurants+near+me" class="menu-item">
-                <div class="menu-text">
-                    <span>LOCAL GUIDE</span>
-                    <small>Best Food & Coffee in Karditsa</small>
-                </div>
-                <span>📍</span>
-            </a>
+            <a href="studio47-rules.html" class="action-strip">
+    <div class="action-content">
+        <i class="fas fa-book-open"></i>
+        <span class="action-label">House Manual</span>
+        <div style="font-size: 0.55rem; color: #555; letter-spacing: 1px; margin-top: 5px; text-transform: uppercase;">
+            Guidelines & Language: ΕΛ / EN
+        </div>
+    </div>
+</a>
+
+<a href="guide.html" class="action-strip">
+    <div class="action-content">
+        <i class="fas fa-map-marked-alt"></i>
+        <span class="action-label">Local Guide</span>
+        <div style="font-size: 0.55rem; color: #555; letter-spacing: 1px; margin-top: 5px; text-transform: uppercase;">
+            Coffee, Dining & Sightseeing
+        </div>
+    </div>
+</a>
+
+<a href="https://share.google/WtwVJfevOjbt7Dhst" class="action-strip" target="_blank">
+    <div class="action-content">
+        <i class="fas fa-handshake"></i>
+        <span class="action-label">Our Partners</span>
+        <div style="font-size: 0.55rem; color: #555; letter-spacing: 1px; margin-top: 5px; text-transform: uppercase;">
+            PG LAB Innovation Hub & More
+        </div>
+    </div>
+</a>
+
+<a href="https://www.google.com/search?q=weather+karditsa" class="action-strip" target="_blank">
+    <div class="action-content">
+        <i class="fas fa-cloud-sun"></i>
+        <span class="action-label">Weather</span>
+        <div style="font-size: 0.55rem; color: #555; letter-spacing: 1px; margin-top: 5px; text-transform: uppercase;">
+            Live Forecast & Temperature
+        </div>
+    </div>
+</a>
+
+        <div class="footer-section">
+            <a href="club.html" class="btn-club">JOIN THE NEST <br> URBAN STAY CLUB</a>
             
-            <a href="#" class="menu-item">
-                <div class="menu-text">
-                    <span>HOUSE RULES</span>
-                    <small>Check-out, Smoking, Quiet hours</small>
-                </div>
-                <span>📜</span>
+            <a href="https://digitalatelier.gr" class="credits" target="_blank">
+                Designed by <strong>Digital Atelier</strong>
             </a>
+
+            <div class="copyright-text">
+                &copy; 2026 THE NEST URBAN STAY.
+            </div>
         </div>
-
-        <a href="club.html" class="club-btn">JOIN THE CLUB & GET 10% OFF</a>
-
-        <a href="index.html" class="footer-link">EXPLORE THE NEST HUB</a>
     </div>
 
 </body>
 </html>
+
