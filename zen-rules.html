@@ -52,7 +52,19 @@
 <body>
 
     <div class="nav-bar">
-        <a href="Zen.html" class="btn-back">← Back</a>
+        <a href="#" onclick="goBack()" class="btn-back">← BACK</a>
+
+<script>
+function goBack() {
+    // Αν υπάρχει ιστορικό στο πρόγραμμα περιήγησης, πήγαινε πίσω
+    if (document.referrer.includes(window.location.hostname)) {
+        window.history.back();
+    } else {
+        // Αν ο πελάτης άνοιξε το link απευθείας, στείλε τον στην κεντρική
+        window.location.href = "index.html";
+    }
+}
+</script>
         <span style="font-size: 0.6rem; letter-spacing: 2px; color: #333;">HOUSE RULES</span>
     </div>
 
