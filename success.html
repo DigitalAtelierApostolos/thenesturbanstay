@@ -59,18 +59,20 @@
     <div class="content">
         <h1>Σας ευχαριστούμε πολύ</h1>
         <p>Η εγγραφή σας ολοκληρώθηκε. Θα λάβετε σύντομα ένα email με την ψηφιακή κάρτα μέλους και τον κωδικό έκπτωσης.</p>
-        <a href="#" onclick="goBack()" class="btn-back">ΕΠΙΣΤΡΟΦΗ</a>
+        <a href="#" id="back-link" class="btn-back">ΕΠΙΣΤΡΟΦΗ</a>
 
 <script>
-function goBack() {
-    // Αν υπάρχει ιστορικό στο πρόγραμμα περιήγησης, πήγαινε πίσω
-    if (document.referrer.includes(window.location.hostname)) {
-        window.history.back();
+    const urlParams = new URLSearchParams(window.location.search);
+    const fromRoom = urlParams.get('from');
+    const backBtn = document.getElementById('back-link');
+
+    if (fromRoom) {
+        // Αν ξέρουμε από ποιο δωμάτιο ήρθε, τον γυρνάμε στο καθαρό link (λόγω redirects)
+        backBtn.href = "/" + fromRoom; 
     } else {
-        // Αν ο πελάτης άνοιξε το link απευθείας, στείλε τον στην κεντρική
-        window.location.href = "index.html";
+        // Αν δεν ξέρουμε, τον πάμε στην αρχική
+        backBtn.href = "/index.html";
     }
-}
 </script>
     </div>
 </body>
